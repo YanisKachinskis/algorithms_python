@@ -7,7 +7,6 @@ for i in range(1, n + 1):
     left = left + i
 print(left)
 
-right = 0
 right = n * (n + 1) / 2
 print(right)
 
