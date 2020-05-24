@@ -3,7 +3,7 @@
 
 import timeit
 import cProfile
-import functools
+
 
 # 1. Решение задачи №1 (рекурсия)
 DIV = 10
