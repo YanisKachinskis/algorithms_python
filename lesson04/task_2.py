@@ -13,13 +13,13 @@ import math
 # 1. Вариант с решетом Эратосфена:
 
 def sieve_func(n):
-    sieve = [i for i in range(int(n * math.log2(n)))]
+    sieve = [i for i in range(int(n * math.log2(n) + 5))]
     sieve[1] = 0
     # print(sieve)
-    for i in range(2, int(n * math.log2(n))):
+    for i in range(2, int(n * math.log2(n) + 5)):
         if sieve[i] != 0:
             j = i + i
-            while j < int(n * math.log2(n)):
+            while j < int(n * math.log2(n) + 5):
                 sieve[j] = 0
                 j += i
     res = [i for i in sieve if i != 0]
@@ -30,7 +30,6 @@ print(timeit.timeit('sieve_func(50)', number=100, globals=globals()))  # 0.02310
 print(timeit.timeit('sieve_func(100)', number=100, globals=globals()))  # 0.060253
 print(timeit.timeit('sieve_func(150)', number=100, globals=globals()))  # 0.10372129999999999
 print(timeit.timeit('sieve_func(200)', number=100, globals=globals()))  # 0.1473403
-
 
 cProfile.run('sieve_func(50)')
 #         1    0.000    0.000    0.000    0.000 task_2.py:15(sieve_func)
@@ -74,6 +73,7 @@ def prime_func(n):
             i += 1
         k += 1
     return f'Простое число под номером {n} - это {prime_num}'
+
 
 print(timeit.timeit('prime_func(50)', number=100, globals=globals()))  # 0.0549408
 print(timeit.timeit('prime_func(100)', number=100, globals=globals()))  # 0.2749292
