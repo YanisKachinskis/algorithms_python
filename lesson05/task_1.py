@@ -17,8 +17,12 @@ for company in range(1, company_number + 1):
 average_income = total_income / company_number
 print(f"Средняя прибыль за год: {average_income}")
 
+print(f'Предприятия с прибылью выше среднего:')
 for i in total:
-    if sum(total[i]) >= average_income:
-        print(f'Предприятие {i} имеет прибыль выше среднего.')
-    else:
-        print(f'Предприятие {i} имеет прибыль ниже среднего.')
+    if sum(total[i]) > average_income:
+        print(f'{i}')
+
+print(f'Предприятия с прибылью ниже среднего:')
+for i in total:
+    if sum(total[i]) < average_income:
+        print(f'{i}')
